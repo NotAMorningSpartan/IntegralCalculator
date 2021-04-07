@@ -4,13 +4,30 @@
 
 using namespace std;
 #include <iostream>
+#include <functional>
 
-//TODO: Modify functions to accept function as parameter.
-double trap_int(double a, double b, int n){
+//Function that will be passed in.
+void f(){
 
 }
 
-double simp_int(double a, double b, int n){
+/// Method that integrates a given function over a given range using the Trapezoid method.
+/// \param a The start of the range.
+/// \param b The end of the range.
+/// \param n The number of sections.
+/// \param f The function to be numerically integrated.
+/// \return The calculated value from the integration.
+double trap_int(double a, double b, int n, function<void()> f){
+
+}
+
+/// Method that integrates a given function over a given range using Simpson's method.
+/// \param a The start of the range.
+/// \param b The end of the range.
+/// \param n The number of sections.
+/// \param f The function to be numerically integrated.
+/// \return The calculated value from the integration.
+double simp_int(double a, double b, int n, function<void()> f){
 
 }
 
@@ -25,10 +42,8 @@ int main(){
     cin >> b;
     cout << "Please input the number of sections in the range of the integration:" << endl;
     cin >> n;
-    cout << "Please input the function you wish to be numerically integrated:" << endl;
-    //TODO: Implement passing in a function.
 
-    cout << "Result using the trapezoid method: " << to_string(trap_int(a, b, n)) << endl;
-    cout << "Result using Simpson's method of integration: " << to_string(simp_int(a, b, n)) << endl;
+    cout << "Result using the trapezoid method: " << to_string(trap_int(a, b, n, f)) << endl;
+    cout << "Result using Simpson's method of integration: " << to_string(simp_int(a, b, n, f)) << endl;
     return 0;
 }
