@@ -6,10 +6,12 @@
 using namespace std;
 #include <iostream>
 #include <functional>
+#include <math.h>
 
 //Function that will be passed in.
+//Function: f(x) = x^2 + 1
 double f(double x){
-
+    return pow(x, 2) + 1.0;
 }
 
 /// Method that integrates a given function over a given range using the Trapezoid method.
@@ -19,7 +21,13 @@ double f(double x){
 /// \param f The function to be numerically integrated.
 /// \return The calculated value from the integration.
 double trap_int(double a, double b, int n, function<double(double x)> f){
-
+    //Grid spacing/segment size
+    double h = (b-a) / n;
+    double s = f(a) + f(b);
+    for(int i = 0; i < n; i++){
+        s += 2 * f(a + i + h);
+    }
+    return (h/2) * s;
 }
 
 /// Method that integrates a given function over a given range using Simpson's method.
@@ -29,7 +37,7 @@ double trap_int(double a, double b, int n, function<double(double x)> f){
 /// \param f The function to be numerically integrated.
 /// \return The calculated value from the integration.
 double simp_int(double a, double b, int n, function<double(double x)> f){
-
+    return 0;
 }
 
 int main(){
