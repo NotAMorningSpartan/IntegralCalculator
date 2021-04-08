@@ -37,7 +37,29 @@ double trap_int(double a, double b, int n, function<double(double x)> f){
 /// \param f The function to be numerically integrated.
 /// \return The calculated value from the integration.
 double simp_int(double a, double b, int n, function<double(double x)> f){
-    return 0;
+    double h = (b - a) / n;
+    double x[n+1], y[n+1];
+    for(int i = 0; i <= n; i++){
+        x[i] = a + i * h;
+        y[i] = f(x[i]);
+    }
+
+    //Variable to hold resulting value;
+    double result = 0;
+    for(int i = 0; i <= n; i++){
+        //Handle beginning and end of segments.
+        if(i == 0 || i == n){
+            result += y[i];
+        }
+        else if(i % 2 != 0){
+            result += 4 * y[i];
+        }
+        else{
+            result += 2 * y[i];
+        }
+    }
+    result = result * (h / 3);
+    return result;
 }
 
 int main(){
