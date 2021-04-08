@@ -2,12 +2,13 @@
 //HW7
 //13 April 2021
 
+//Include statements.
 using namespace std;
 #include <iostream>
 #include <functional>
 
 //Function that will be passed in.
-void f(){
+double f(double x){
 
 }
 
@@ -17,7 +18,7 @@ void f(){
 /// \param n The number of sections.
 /// \param f The function to be numerically integrated.
 /// \return The calculated value from the integration.
-double trap_int(double a, double b, int n, function<void()> f){
+double trap_int(double a, double b, int n, function<double(double x)> f){
 
 }
 
@@ -27,7 +28,7 @@ double trap_int(double a, double b, int n, function<void()> f){
 /// \param n The number of sections.
 /// \param f The function to be numerically integrated.
 /// \return The calculated value from the integration.
-double simp_int(double a, double b, int n, function<void()> f){
+double simp_int(double a, double b, int n, function<double(double x)> f){
 
 }
 
